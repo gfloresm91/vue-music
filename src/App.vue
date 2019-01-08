@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <vm-header></vm-header>
     <section class="section">
       <nav class="navbar has-shadow">
         <div class="container">
@@ -32,23 +33,27 @@
 
       <div class="container results">
         <div class="columns">
-          <div class="column" v-for="track in tracks" :key="track.name">
-            {{ track.name }} - {{ track.artist }}
+          <div class="column" v-for="track in tracks" :key="track.id">
+            {{ track.name }} - {{ track.artists[0].name }}
           </div>
         </div>
       </div>
+
     </section>
+    <vm-footer></vm-footer>
   </div>
 </template>
 
 <script>
-const tracks = [
-  { name: 'Toxicity', artist: 'SOAD' },
-  { name: 'Chop Suey', artist: 'SOAD' }
-]
+import trackService from './services/track'
+import VmFooter from './components/layout/Footer.vue'
+import VmHeader from './components/layout/Header.vue'
 
 export default {
   name: 'app',
+
+  components: { VmFooter, VmHeader },
+
   data () {
     return {
       searchQuery: '',
@@ -64,7 +69,13 @@ export default {
 
   methods: {
     search () {
-      this.tracks = tracks
+      if (!this.searchQuery) {
+        return
+      }
+      trackService.search(this.searchQuery)
+        .then(res => {
+          this.tracks = res.tracks.items
+        })
     }
   }
 }
