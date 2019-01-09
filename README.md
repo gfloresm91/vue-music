@@ -10,6 +10,25 @@
 - Eslint
 - Sass
 - Bulma
+- Trae (librería)
+
+## Conceptos vistos
+
+- Expresiones
+- Directivas
+- Data binding
+- Propiedades computadas
+- Watchers
+- Eventos
+- Fetch Api
+- Librería trae
+- Consumo Api REST
+- Componentes
+- Reactividad
+- Comunicación entre componentes padres e hijos
+- Comunicación entre componentes hijos hacia padres
+- Slots
+- Comunicación entre componentes genericos (Event Bus y plugins)
 
 ## Build Setup
 

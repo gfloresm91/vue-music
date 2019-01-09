@@ -23,7 +23,18 @@
         <h2 class="subtitle">
           Songs that are in Vue music
         </h2>
+        <vm-player></vm-player>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+import VmPlayer from '@/components/Player.vue'
+
+export default {
+  components: {
+    VmPlayer
+  }
+}
+</script>

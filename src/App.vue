@@ -2,10 +2,17 @@
   <div id="app">
 
     <vm-header></vm-header>
+
+    <vm-notification v-show="showNotification">
+      <p slot="body">
+        No results found
+      </p>
+    </vm-notification>
+
     <vm-loader v-show="isLoading"></vm-loader>
 
     <section class="section" v-show="!isLoading">
-      <nav class="navbar has-shadow">
+      <nav class="navbar">
         <div class="container">
 
           <div class="field has-addons">
@@ -37,7 +44,11 @@
       <div class="container results">
         <div class="columns is-multiline">
           <div class="column is-one-quarter" v-for="track in tracks" :key="track.id">
-            <vm-track :track="track"></vm-track>
+
+            <vm-track :track="track" @select="setSelectedTrack"
+                      :class="{ 'is-active': track.id === selectedTrack }"
+            ></vm-track>
+
           </div>
         </div>
       </div>
@@ -52,10 +63,13 @@
 <script>
 // @ is a alias set in webpack.config.js
 import trackService from '@/services/track'
+
 import VmFooter from '@/components/layout/Footer.vue'
 import VmHeader from '@/components/layout/Header.vue'
 import VmTrack from '@/components/Track'
+
 import VmLoader from '@/components/shared/Loader.vue'
+import VmNotification from '@/components/shared/Notification.vue'
 
 export default {
   name: 'app',
@@ -65,14 +79,17 @@ export default {
     VmFooter,
     VmHeader,
     VmTrack,
-    VmLoader
+    VmLoader,
+    VmNotification
   },
 
   data () {
     return {
       searchQuery: '',
       tracks: [],
-      isLoading: false
+      isLoading: false,
+      selectedTrack: '',
+      showNotification: false
     }
   },
 
@@ -80,6 +97,18 @@ export default {
   computed: {
     searchMessage () {
       return `Se han encontrado ${this.tracks.length} canciones`
+    }
+  },
+
+  // This only execute code
+  // This has to be called the same as the properties
+  watch: {
+    showNotification () {
+      if (this.showNotification) {
+        setTimeout(() => {
+          this.showNotification = false
+        }, 3000)
+      }
     }
   },
 
@@ -93,9 +122,15 @@ export default {
 
       trackService.search(this.searchQuery)
         .then(res => {
+          // Verify if have data
+          this.showNotification = res.tracks.total === 0
           this.tracks = res.tracks.items
           this.isLoading = false
         })
+    },
+
+    setSelectedTrack (id) {
+      this.selectedTrack = id
     }
   }
 }
@@ -106,5 +141,9 @@ export default {
 
   .results {
     margin: 50px;
+  }
+
+  .is-active {
+    border: 3px solid #23d160;
   }
 </style>
