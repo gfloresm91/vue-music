@@ -3,13 +3,14 @@
     <div class="hero-head">
       <header class="navbar">
         <div class="container">
-          <div class="navbar-left">
+          <div class="navbar-start">
             <div class="navbar-item">
               <strong>Vue music</strong>
             </div>
           </div>
-          <div class="navbar-right navbar-menu">
-
+          <div class="navbar-end navbar-menu">
+            <router-link class="navbar-item" :to="{ name: 'search' }">Search</router-link>
+            <router-link class="navbar-item" to="about">About</router-link>
           </div>
         </div>
       </header>

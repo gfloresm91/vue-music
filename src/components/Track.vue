@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-if="track && track.album">
     <div class="card-image">
       <figure class="image is-1by1">
         <img :src="track.album.images[0].url" alt="">
@@ -31,6 +31,11 @@
                   ▶️
                 </span>
               </a>
+              <a class="level-item">
+                <span class="icon is-small" @click="goToTrack(track.id)">
+                  🌎
+                </span>
+              </a>
             </div>
           </nav>
       </div>
@@ -40,7 +45,7 @@
 
 <script>
 export default {
-  // This property pass the vars to father app
+  // This property pass the variables to father app
   props: {
     track: {
       type: Object,
@@ -54,6 +59,13 @@ export default {
       this.$emit('select', this.track.id)
 
       this.$bus.$emit('set-track', this.track)
+    },
+
+    goToTrack (id) {
+      this.$router.push({
+        name: 'track',
+        params: { id }
+      })
     }
   }
 }
