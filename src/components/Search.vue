@@ -16,7 +16,7 @@
           <div class="field has-addons">
 
             <div class="control is-expanded">
-              <input type="text" placeholder="Search songs" class="input is-large" v-model="searchQuery">
+              <input type="text" placeholder="Search songs" class="input is-large" v-model="searchQuery" @keyup.enter="search">
             </div>
 
             <div class="control">
@@ -43,8 +43,10 @@
         <div class="columns is-multiline">
           <div class="column is-one-quarter" v-for="track in tracks" :key="track.id">
 
-            <vm-track :track="track" @select="setSelectedTrack"
+            <vm-track :track="track"
+                      @select="setSelectedTrack"
                       :class="{ 'is-active': track.id === selectedTrack }"
+                      v-blur="track.preview_url"
             ></vm-track>
 
           </div>

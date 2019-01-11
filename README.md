@@ -11,6 +11,7 @@
 - Sass
 - Bulma
 - Trae (librería)
+- Vue router
 
 ## Conceptos vistos
 
@@ -28,7 +29,12 @@
 - Comunicación entre componentes padres e hijos
 - Comunicación entre componentes hijos hacia padres
 - Slots
-- Comunicación entre componentes genericos (Event Bus y plugins)
+- Comunicación entre componentes genéricos (Event Bus y plugins)
+- Vue router y router link
+- Modificadores
+- Filtros
+- Directivas personalizadas
+- Mixins
 
 ## Build Setup
 

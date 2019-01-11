@@ -23,19 +23,20 @@
         </div>
       </div>
       <div class="content">
-        <small>{{ track.duration_ms }}</small>
+        <!-- Use the global filter creater in filters folder -->
+        <small>{{ track.duration_ms | ms-to-mm }}</small>
         <nav class="level">
             <div class="level-left">
-              <a class="level-item">
-                <span class="icon is-small" @click="selectTrack">
+              <button class="level-item button is-primary" @click="selectTrack">
+                <span class="icon is-small">
                   ▶️
                 </span>
-              </a>
-              <a class="level-item">
-                <span class="icon is-small" @click="goToTrack(track.id)">
+              </button>
+              <button class="level-item button is-warning" @click="goToTrack(track.id)">
+                <span class="icon is-small">
                   🌎
                 </span>
-              </a>
+              </button>
             </div>
           </nav>
       </div>
@@ -44,7 +45,11 @@
 </template>
 
 <script>
+import trackMixin from '@/mixins/track'
+
 export default {
+  mixins: [ trackMixin ],
+
   // This property pass the variables to father app
   props: {
     track: {
@@ -54,14 +59,11 @@ export default {
   },
 
   methods: {
-    selectTrack () {
-      // Emit event selected to father
-      this.$emit('select', this.track.id)
-
-      this.$bus.$emit('set-track', this.track)
-    },
-
     goToTrack (id) {
+      if (!this.track.preview_url) {
+        return
+      }
+
       this.$router.push({
         name: 'track',
         params: { id }

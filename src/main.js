@@ -7,10 +7,16 @@ import routes from '@/routes'
 
 import Eventbus from '@/plugins/event-bus'
 
+// Import the global filter created in filters/ms-to-mm.js
+import msToMm from '@/filters/ms-to-mm'
+
+import blur from '@/directives/blur'
+
 // It says to Vue he can use EventBus
 Vue.use(Eventbus)
-
 Vue.use(VueRouter)
+Vue.use(msToMm)
+Vue.use(blur)
 
 const router = new VueRouter({
   routes,
