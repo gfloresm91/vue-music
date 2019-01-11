@@ -35,6 +35,7 @@
 - Filtros
 - Directivas personalizadas
 - Mixins
+- Transiciones
 
 ## Build Setup
 

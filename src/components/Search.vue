@@ -1,13 +1,17 @@
 <template>
   <div id="main">
 
-    <vm-notification v-show="showNotification">
-      <p slot="body">
-        No results found
-      </p>
-    </vm-notification>
+    <transition name="move">
+      <vm-notification v-show="showNotification">
+        <p slot="body">
+          No results found
+        </p>
+      </vm-notification>
+    </transition>
 
-    <vm-loader v-show="isLoading"></vm-loader>
+    <transition name="move">
+      <vm-loader v-show="isLoading"></vm-loader>
+    </transition>
 
     <section class="section" v-show="!isLoading">
       <nav class="navbar">
