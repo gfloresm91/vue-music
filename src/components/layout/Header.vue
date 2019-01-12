@@ -9,8 +9,10 @@
             </div>
           </div>
           <div class="navbar-end navbar-menu">
-            <router-link class="navbar-item" :to="{ name: 'search' }">Search</router-link>
-            <router-link class="navbar-item" to="about">About</router-link>
+            <a class="navbar-item" @click="selectLang('en')">🇬🇧</a>
+            <a class="navbar-item" @click="selectLang('es')">🇪🇸</a>
+            <router-link class="navbar-item" :to="{ name: 'search' }">{{ $t('search') }}</router-link>
+            <router-link class="navbar-item" to="about">{{ $t('about') }}</router-link>
           </div>
         </div>
       </header>
@@ -36,6 +38,12 @@ import VmPlayer from '@/components/Player.vue'
 export default {
   components: {
     VmPlayer
+  },
+
+  methods: {
+    selectLang (lang) {
+      this.$i18n.locale = lang
+    }
   }
 }
 </script>

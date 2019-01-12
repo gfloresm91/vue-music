@@ -14,6 +14,8 @@ import blur from '@/directives/blur'
 
 import store from '@/store'
 
+import i18n from '@/i18n'
+
 // It says to Vue he can use EventBus
 Vue.use(Eventbus)
 Vue.use(VueRouter)
@@ -29,5 +31,6 @@ new Vue({
   el: '#app',
   render: h => h(App),
   router,
-  store
+  store,
+  i18n
 })

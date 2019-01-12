@@ -13,6 +13,7 @@
 - Trae (librería)
 - Vue router
 - Vuex
+- Vue-i8n
 
 ## Conceptos vistos
 
@@ -38,6 +39,7 @@
 - Mixins
 - Transiciones
 - Vuex (state, mutations, getters y actions)
+- Traducciones con vue-i18n
 
 ## Build Setup
 
