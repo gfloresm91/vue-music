@@ -12,6 +12,8 @@ import msToMm from '@/filters/ms-to-mm'
 
 import blur from '@/directives/blur'
 
+import store from '@/store'
+
 // It says to Vue he can use EventBus
 Vue.use(Eventbus)
 Vue.use(VueRouter)
@@ -26,5 +28,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })

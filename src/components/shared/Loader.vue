@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content hast-text-centered">
       <h1>
-        Cargando...
+        Loading...
       </h1>
     </div>
   </div>

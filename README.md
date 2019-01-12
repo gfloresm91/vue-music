@@ -36,6 +36,7 @@
 - Directivas personalizadas
 - Mixins
 - Transiciones
+- Vuex (state, mutations, getters y actions)
 
 ## Build Setup
 
