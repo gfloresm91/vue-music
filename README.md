@@ -12,6 +12,7 @@
 - Bulma
 - Trae (librería)
 - Vue router
+- Vuex
 
 ## Conceptos vistos
 
