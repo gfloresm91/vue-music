@@ -8,7 +8,7 @@
       <small>{{ track.duration_ms | ms-to-mm }}</small>
     </p>
     <p>
-      <audio :src="track.preview_url" controls></audio>
+      <audio :src="track.preview_url" controls="controls" class="fix-audio"></audio>
     </p>
   </div>
 </template>
@@ -27,5 +27,9 @@ export default {
   img {
     width: 124px;
     border-radius: 50%;
+  }
+
+  .fix-audio {
+    height: 54px;
   }
 </style>

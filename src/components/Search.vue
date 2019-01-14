@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <main>
 
     <transition name="move">
       <vm-notification v-show="showNotification">
@@ -59,7 +59,7 @@
 
     </section>
 
-  </div>
+  </main>
 </template>
 
 <script>
@@ -136,7 +136,8 @@ export default {
 
 <style lang="scss">
   .results {
-    margin: 50px;
+    margin: auto;
+    margin-top: 24px;
   }
 
   .is-active {

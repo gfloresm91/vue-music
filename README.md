@@ -2,6 +2,8 @@
 
 > Proyecto con fines educativos, aprendiendo a realizar una página web con Vue :)
 
+![vue-music-thumbnail](vue-music-thumbnail.png)
+
 ## Herramientas y tecnologías utilizadas
 
 - Vue.js
@@ -41,7 +43,7 @@
 - Vuex (state, mutations, getters y actions)
 - Traducciones con vue-i18n
 
-## Build Setup
+## Build setup
 
 ``` bash
 # install dependencies
