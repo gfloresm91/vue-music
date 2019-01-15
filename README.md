@@ -1,6 +1,7 @@
 # vue-music
 
-> Proyecto con fines educativos, aprendiendo a realizar una página web con Vue :)
+> Proyecto con fines educativos, aprendiendo a realizar una página web con Vue :)  
+> **Demo:** [vue-music.gabrielflores.cl](https://vue-music.gabrielflores.cl/)
 
 ![vue-music-thumbnail](vue-music-thumbnail.png)
 
